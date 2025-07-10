@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonar o repositório') {
             steps {
-                git branch: 'Atendimento_StarClass',
+                git branch: 'main',
                     url: 'https://github.com/JoaoParvi/RPA_Atendimento.git'
             }
         }
