@@ -140,28 +140,39 @@ print("Page Up realizado com sucesso.")
 CliqueData = WebDriverWait(navegador, 10).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#pdf-dashboard > div > main > section.default-card-container.--undefined.--padding-medium.--justify-between.--align-undefined.--direction-undefined.--bg-type-primary > div > div > div"))
 )
+
+print ("Clique Input de Data")
+
 CliqueData.click()
 time.sleep(4)
 #clique principal
 ####################
 CliqueAtual = WebDriverWait(navegador, 10).until(
-    EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(13) > span"))
+    EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(8) > span"))
 )
-CliqueAtual.click()
-time.sleep(2)
-###################
-Aplicardata = WebDriverWait(navegador, 10).until(
-    EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(13) > span"))
-)
-Aplicardata.click()
-time.sleep(2)
 
+print ("Primeiro Clique")
+
+CliqueAtual.click()
+time.sleep(5)
+###################
 Aplicardata = WebDriverWait(navegador, 10).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > div > div > button.ant-btn.ant-btn-primary.default-btn.--font-default.--primary.--undefined.--medium"))
 )
 Aplicardata.click()
-time.sleep(2)
+time.sleep(5)
+
+print ("Clique de Confirmação")
+
+# Aplicardata = WebDriverWait(navegador, 10).until(
+#     EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > div > div > button.ant-btn.ant-btn-primary.default-btn.--font-default.--primary.--undefined.--medium"))
+# )
+# Aplicardata.click()
+# time.sleep(2)
+
+# print ("Aplicando")
 #######################################################################################################################################################
+
 
 # coleta de dados boa vista
 
@@ -823,17 +834,16 @@ dados = {
 }
 
 
-# Convertendo o dicionário em DataFrame
 df = pd.DataFrame(dados, index=["Atendimento_ao_Cliente", "Nota_filial_EqVendas"]).transpose()
 
 # Renomeando as colunas
-df.columns = ["Nota_filial_StarClass", "Nota_filial_EqVendas_StarClass"]
+df.columns = ["Nota_filial_Anual", "Nota_filial_EqVendas_Anual"]
 
 # Adicionando a coluna de Empresa
 df["Empresa"] = df.index
 
 # Reorganizando as colunas
-df = df[["Empresa", "Nota_filial_StarClass", "Nota_filial_EqVendas_StarClass"]]
+df = df[["Empresa", "Nota_filial_Anual", "Nota_filial_EqVendas_Anual"]]
 
 # Removendo a coluna sem nome (índice neste caso)
 df.reset_index(drop=True, inplace=True)
@@ -858,7 +868,7 @@ params = urllib.parse.quote_plus(
     f'DRIVER=ODBC Driver 17 for SQL Server;SERVER={host},{port};DATABASE={database};UID={user};PWD={password}')
 connection_str = f'mssql+pyodbc:///?odbc_connect={params}'
 engine = create_engine(connection_str)
-table_name = "AtendimentoCli_StarClass_IndeCX"
+table_name = "AtendimentoCli_Ano_IndeCX"
 
 with engine.connect() as connection:
     df.to_sql(table_name, con=connection, if_exists='replace', index=False)

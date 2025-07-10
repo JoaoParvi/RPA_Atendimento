@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clonar o repositório') {
             steps {
-                git branch: 'main',
+                git branch: 'Atendimento_Anual',
                     url: 'https://github.com/JoaoParvi/RPA_Atendimento.git'
             }
         }
@@ -18,7 +18,7 @@ pipeline {
         stage('Executar script Python') {
             steps {
                 bat '''
-            C:\\Users\\adm.luiz.vinicius\\AppData\\Local\\Programs\\Python\\Python312\\python.exe Atendimento_StarClass.py > script_log.txt 2>&1
+            C:\\Users\\adm.luiz.vinicius\\AppData\\Local\\Programs\\Python\\Python312\\python.exe Atendimento_Anual.py > script_log.txt 2>&1
             type script_log.txt
         '''
     }
