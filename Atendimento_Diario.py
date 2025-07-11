@@ -145,13 +145,13 @@ time.sleep(4)
 #clique principal
 ####################
 CliqueAtual = WebDriverWait(navegador, 10).until(
-    EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(13) > span"))
+    EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(1)"))
 )
 CliqueAtual.click()
 time.sleep(2)
-###################
+##################
 Aplicardata = WebDriverWait(navegador, 10).until(
-    EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(13) > span"))
+    EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(1)"))
 )
 Aplicardata.click()
 time.sleep(2)
@@ -162,7 +162,6 @@ Aplicardata = WebDriverWait(navegador, 10).until(
 Aplicardata.click()
 time.sleep(2)
 #######################################################################################################################################################
-
 # coleta de dados boa vista
 
 # Coletar dados do relatório
@@ -827,13 +826,13 @@ dados = {
 df = pd.DataFrame(dados, index=["Atendimento_ao_Cliente", "Nota_filial_EqVendas"]).transpose()
 
 # Renomeando as colunas
-df.columns = ["Nota_filial_StarClass", "Nota_filial_EqVendas_StarClass"]
+df.columns = ["Nota_filial_Diario", "Nota_filial_EqVendas_Diario"]
 
 # Adicionando a coluna de Empresa
 df["Empresa"] = df.index
 
 # Reorganizando as colunas
-df = df[["Empresa", "Nota_filial_StarClass", "Nota_filial_EqVendas_StarClass"]]
+df = df[["Empresa", "Nota_filial_Diario", "Nota_filial_EqVendas_Diario"]]
 
 # Removendo a coluna sem nome (índice neste caso)
 df.reset_index(drop=True, inplace=True)
@@ -843,8 +842,7 @@ df['data_atualizacao'] = date.today()
 
 # Exibindo o DataFrame
 print(df)
-
-##########################################################################
+######################################################################################
 #conexâo ao banco de dados
 
 print("Conectando ao banco de dados...")
@@ -858,11 +856,12 @@ params = urllib.parse.quote_plus(
     f'DRIVER=ODBC Driver 17 for SQL Server;SERVER={host},{port};DATABASE={database};UID={user};PWD={password}')
 connection_str = f'mssql+pyodbc:///?odbc_connect={params}'
 engine = create_engine(connection_str)
-table_name = "AtendimentoCli_StarClass_IndeCX"
+table_name = "AtendimentoCli_Diario_IndeCX"
 
 with engine.connect() as connection:
     df.to_sql(table_name, con=connection, if_exists='replace', index=False)
 
 print(f"Dados inseridos com sucesso na tabela '{table_name}'!")
+
 print("Fechando o navegador...")
 navegador.quit()
