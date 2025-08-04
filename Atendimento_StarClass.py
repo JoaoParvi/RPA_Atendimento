@@ -30,7 +30,7 @@ navegador.maximize_window()
 def send_multiple_keys(navegador, key, times):
     for _ in range(times):
         navegador.switch_to.active_element.send_keys(key)
-        time.sleep(1)
+        time.sleep(4)
 
 options = Options()
 options.add_argument("start-maximized")  # opcional
@@ -50,32 +50,32 @@ time.sleep(5)
 
 navegador.execute_script("document.body.style.zoom='90%'")
 
-time.sleep(10)
-time.sleep(4)
+time.sleep(15)
+time.sleep(8)
 
 # ACESSAR RELATÓRIOS
 relatorios = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#app > section > section > aside > div > ul > li:nth-child(6) > div > span > i"))
 )
 relatorios.click()
-time.sleep(4)
+time.sleep(8)
 
 listarelatorio = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#sub_menu_4_\$\$_menu-sub-item-dashboard\.sideMenu\.reports\.title-popup > li:nth-child(1) > span > span"))
 )
 listarelatorio.click()
-time.sleep(4)
+time.sleep(8)
 
 CliqueOutros = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#pdf-dashboard > div > div > ul > li:nth-child(8) > div > span > span"))
 )
 CliqueOutros.click()
-time.sleep(4)
+time.sleep(8)
 
 navegador.switch_to.active_element.send_keys(Keys.PAGE_DOWN)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.PAGE_DOWN)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.PAGE_DOWN)
 time.sleep(10)
 
@@ -84,56 +84,56 @@ relatorioCXI = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#sub_menu_24_\$\$_menu-sub-item-reportSession\.reportList\.menu\.others\.title-popup > li:nth-child(6) > span > span"))
 )
 relatorioCXI.click()
-time.sleep(4)
+time.sleep(8)
 
 # APLICAR FILTROS (VENDAS DE CAMINHÃO)
 filtroData = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#header-filter-button"))
 )
 filtroData.click()
-time.sleep(4)
+time.sleep(8)
 
 filtroSegmento = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter-container > div:nth-child(3) > div.ant-select.default-select.--block.--medium.filter__action-group-select.ant-select-single.ant-select-allow-clear.ant-select-show-arrow.ant-select-show-search > div > span.ant-select-selection-item"))
 )
 filtroSegmento.click()
-time.sleep(4)
+time.sleep(8)
 
 navegador.switch_to.active_element.send_keys(Keys.ARROW_DOWN)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.ARROW_DOWN)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.ARROW_DOWN)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.ENTER)
-time.sleep(4)
+time.sleep(8)
 
 ###########################################################################################################
 # selecionando loja
 navegador.switch_to.active_element.send_keys(Keys.TAB)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.TAB)
-time.sleep(4)
+time.sleep(8)
 # Envia a letra "m" para o campo atualmente em foco
 navegador.switch_to.active_element.send_keys("m")
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.ENTER)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.TAB)
-time.sleep(4)
+time.sleep(8)
 ############################################################################################################
 # Aplicar o filtro final
 Aplicar = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter__apply-btn"))
 )
 Aplicar.click()
-time.sleep(2)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.PAGE_UP)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.PAGE_UP)
-time.sleep(4)
+time.sleep(8)
 navegador.switch_to.active_element.send_keys(Keys.PAGE_UP)
-time.sleep(4)
+time.sleep(8)
 
 print("Page Up realizado com sucesso.")
 ################################################### FILTRO DATA #########################################################################################
@@ -141,26 +141,26 @@ CliqueData = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "#pdf-dashboard > div > main > section.default-card-container.--undefined.--padding-medium.--justify-between.--align-undefined.--direction-undefined.--bg-type-primary > div > div > div"))
 )
 CliqueData.click()
-time.sleep(4)
+time.sleep(8)
 #clique principal
 ####################
 CliqueAtual = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(13) > span"))
 )
 CliqueAtual.click()
-time.sleep(2)
+time.sleep(8)
 ###################
 Aplicardata = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > ul > li:nth-child(13) > span"))
 )
 Aplicardata.click()
-time.sleep(2)
+time.sleep(8)
 
 Aplicardata = WebDriverWait(navegador, 20).until(
     EC.element_to_be_clickable((By.CSS_SELECTOR, "body > div:nth-child(7) > div > div > div > div.ant-picker-panel-container > div.ant-picker-footer > div > div > button.ant-btn.ant-btn-primary.default-btn.--font-default.--primary.--undefined.--medium"))
 )
 Aplicardata.click()
-time.sleep(2)
+time.sleep(8)
 #######################################################################################################################################################
 
 # coleta de dados boa vista
@@ -170,25 +170,25 @@ NotaNacionalAtn = WebDriverWait(navegador, 20).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > section:nth-child(3) > div > span:nth-child(1) > strong"))
 )
 Nota_NacionalAtn = NotaNacionalAtn.text
-time.sleep(2)
+time.sleep(8)
 
 NotafilialBoaVista = WebDriverWait(navegador, 20).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(4) > div.ant-col.ant-col-8 > section > div > div > div > div > span"))
 )
 NotafilialBoaVista = NotafilialBoaVista.text
-time.sleep(2)
+time.sleep(8)
 
 NotaNacionalEquipeVendas = WebDriverWait(navegador, 20).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(8) > div.ant-col.ant-col-8 > section > div > div > div > div > span"))
 )
 Nota_Nacional_Equipe_Vendas = NotaNacionalEquipeVendas.text
-time.sleep(2)
+time.sleep(8)
 
 NotafilialEqVendasBoavista = WebDriverWait(navegador, 20).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(8) > div.ant-col.ant-col-8 > section > div > div > div > div > span"))
 )
 Nota_filial_EqVendas_Boavista = NotafilialEqVendasBoavista.text
-time.sleep(2)
+time.sleep(8)
 
 # Exibir os dados
 print(f"ATENDIMENTO AO CLIENTE BOA VISTA: {NotafilialBoaVista}")
@@ -202,7 +202,7 @@ filtroData = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#header-filter-button"))
 )
 filtroData.click()
-time.sleep(4)
+time.sleep(8)
 
 
 # Selecionar "Boavista"
@@ -210,37 +210,37 @@ desmarcar = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter-container > div:nth-child(4) > div.ant-select.default-select.--block.--medium.filter__branch-select.ant-select-multiple.ant-select-allow-clear.ant-select-show-search > div > div > div:nth-child(1) > span > span.ant-select-selection-item-remove > span > svg > path"))
 )
 desmarcar.click()
-time.sleep(4)
+time.sleep(8)
 
   # Selecionar "Brasilia"
 filtroConcessionaria = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter-container > div:nth-child(4) > div.ant-select.default-select.--block.--medium.filter__branch-select.ant-select-multiple.ant-select-allow-clear.ant-select-show-search > div > div"))
 )
 filtroConcessionaria.click()
-time.sleep(4)
+time.sleep(8)
 
 send_multiple_keys(navegador, Keys.ARROW_DOWN, 1)
-time.sleep(2)
+time.sleep(8)
 
 send_multiple_keys(navegador, Keys.ENTER, 1)
-time.sleep(2)
+time.sleep(8)
 
 # Confirmar "Brasilia"
 AplicarFiltro = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter__apply-btn"))
 )
 AplicarFiltro.click()
-time.sleep(4)
+time.sleep(8)
 
 # Coletar dados do relatório
 
 NotafilialBrasilia = WebDriverWait(navegador, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(4) > div.ant-col.ant-col-8 > section > div > div > div > div > span")))
 NotafilialBrasilia = NotafilialBrasilia.text  # Extrair o texto do elemento
-time.sleep(2)
+time.sleep(8)
 
 NotafilialEqVendasBrasilia = WebDriverWait(navegador, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(8) > div.ant-col.ant-col-8 > section > div > div > div > div > span")))
 Nota_filial_EqVendas_Brasilia = NotafilialEqVendasBrasilia.text  # Extrair o texto do elemento
-time.sleep(2)
+time.sleep(8)
 
 
 print(f"ATENDIMENTO AO CLIENTE BRASILIA: {NotafilialBrasilia}")
@@ -252,7 +252,7 @@ filtroData = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#header-filter-button"))
 )
 filtroData.click()
-time.sleep(4)
+time.sleep(8)
 
 
 # Selecionar "Boavista"
@@ -260,35 +260,35 @@ desmarcar = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter-container > div:nth-child(4) > div.ant-select.default-select.--block.--medium.filter__branch-select.ant-select-multiple.ant-select-allow-clear.ant-select-show-search > div > div > div:nth-child(1) > span > span.ant-select-selection-item-remove > span > svg > path"))
 )
 desmarcar.click()
-time.sleep(4)
+time.sleep(8)
 
   # Selecionar "Boavista"
 filtroConcessionaria = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter-container > div:nth-child(4) > div.ant-select.default-select.--block.--medium.filter__branch-select.ant-select-multiple.ant-select-allow-clear.ant-select-show-search > div > div"))
 )
 filtroConcessionaria.click()
-time.sleep(4)
+time.sleep(8)
 
 send_multiple_keys(navegador, Keys.ARROW_DOWN, 2)
-time.sleep(2)
+time.sleep(6)
 
 send_multiple_keys(navegador, Keys.ENTER, 1)
-time.sleep(2)
+time.sleep(6)
 
 # Confirmar "Boavista"
 AplicarFiltro = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter__apply-btn"))
 )
 AplicarFiltro.click()
-time.sleep(4)
+time.sleep(6)
 
 NotafilialCampos = WebDriverWait(navegador, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(4) > div.ant-col.ant-col-8 > section > div > div > div > div > span")))
 NotafilialCampos = NotafilialCampos.text  # Extrair o texto do elemento
-time.sleep(2)
+time.sleep(6)
 
 NotafilialEqVendasCampos = WebDriverWait(navegador, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(8) > div.ant-col.ant-col-8 > section > div > div > div > div > span")))
 Nota_filial_EqVendas_Campos = NotafilialEqVendasCampos.text  # Extrair o texto do elemento
-time.sleep(2)
+time.sleep(6)
 
 print(f"ATENDIMENTO AO CLIENTE CAMPOS: {NotafilialCampos}")
 print(f"NOTA FILIAL EQVENDAS CAMPOS: {Nota_filial_EqVendas_Campos}")
@@ -298,7 +298,7 @@ filtroData = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#header-filter-button"))
 )
 filtroData.click()
-time.sleep(4)
+time.sleep(6)
 
 
 # Selecionar "Boavista"
@@ -306,7 +306,7 @@ desmarcar = WebDriverWait(navegador, 20).until(
 EC.element_to_be_clickable((By.CSS_SELECTOR, "#filter-container > div:nth-child(4) > div.ant-select.default-select.--block.--medium.filter__branch-select.ant-select-multiple.ant-select-allow-clear.ant-select-show-search > div > div > div:nth-child(1) > span > span.ant-select-selection-item-remove > span > svg > path"))
 )
 desmarcar.click()
-time.sleep(4)
+time.sleep(6)
 
   # Selecionar "Boavista"
 filtroConcessionaria = WebDriverWait(navegador, 20).until(
@@ -316,10 +316,10 @@ filtroConcessionaria.click()
 time.sleep(4)
 
 send_multiple_keys(navegador, Keys.ARROW_DOWN, 3)
-time.sleep(2)
+time.sleep(6)
 
 send_multiple_keys(navegador, Keys.ENTER, 1)
-time.sleep(2)
+time.sleep(6)
 
 # Confirmar "Boavista"
 AplicarFiltro = WebDriverWait(navegador, 20).until(
@@ -330,11 +330,11 @@ time.sleep(4)
 
 NotafilialFloriano = WebDriverWait(navegador, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(4) > div.ant-col.ant-col-8 > section > div > div > div > div > span")))
 NotafilialFloriano = NotafilialFloriano.text  # Extrair o texto do elemento
-time.sleep(2)
+time.sleep(6)
 
 NotafilialEqVendasFloriano = WebDriverWait(navegador, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#pdf-dashboard > div > main > div:nth-child(8) > div.ant-col.ant-col-8 > section > div > div > div > div > span")))
 Nota_filial_EqVendas_Floriano = NotafilialEqVendasFloriano.text  # Extrair o texto do elemento
-time.sleep(2)
+time.sleep(6)
 
 print(f"ATENDIMENTO AO CLIENTE FLORIANO: {NotafilialFloriano}")
 print(f"NOTA FILIAL EQVENDAS FLORIANO: {Nota_filial_EqVendas_Floriano}")
